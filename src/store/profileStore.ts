@@ -42,11 +42,11 @@ export const useProfileStore = defineStore('profile', () => {
 			const { data } = await apiClient.GET('/auth/me');
 			if (data) {
 				setupAuth(storedToken);
-				toastStore.success("Логин из сохраненной сессии успешен");
+				toastStore.success('Логин из сохраненной сессии успешен');
 				return;
 			}
-			toastStore.error("Сохраненная сессия истекла, залогиньтесь заново");
-			localStorage.removeItem("token");
+			toastStore.error('Сохраненная сессия истекла, залогиньтесь заново');
+			localStorage.removeItem('token');
 		}
 
 		setupAuth(tvff_token ?? TVOI_FF_TEST_TOKEN);
@@ -68,7 +68,7 @@ export const useProfileStore = defineStore('profile', () => {
 		});
 
 		if (error) {
-			toastStore.error(error.detail as unknown as string ?? "Что-то не так");
+			toastStore.error((error.detail as unknown as string) ?? 'Что-то не так');
 			return;
 		}
 
@@ -78,8 +78,8 @@ export const useProfileStore = defineStore('profile', () => {
 			sessionScopes.value = data.session_scopes ?? [];
 
 			setupAuth(data.token || '');
-			localStorage.setItem("token", data.token || '');
-			toastStore.success("Сессия установлена и сохранена");
+			localStorage.setItem('token', data.token || '');
+			toastStore.success('Сессия установлена и сохранена');
 		}
 	}
 

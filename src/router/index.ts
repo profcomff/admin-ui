@@ -27,8 +27,8 @@ const routes: RouteRecordRaw[] = [
 	},
 	{
 		path: '/debug',
-		component: () => import('../pages/Debug.vue'),
-	}
+		component: () => import('../pages/DebugPage.vue'),
+	},
 ];
 
 export const router = createRouter({
