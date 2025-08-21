@@ -1,42 +1,29 @@
 <script setup lang="ts">
-import { useProfileStore } from './store';
+import { useProfileStore, useToastStore } from './store';
 import { onMounted } from 'vue';
 
 const profileStore = useProfileStore();
+const toastStore = useToastStore();
 
 onMounted(() => {
-	profileStore.fromUrl();
+	profileStore.setupAdminSession(null);
 });
 </script>
 
 <template>
-	<main class="container">
-		<RouterView />
-	</main>
-	<footer>
-		Made by
-		<a href="https://app.profcomff.com"><img src="https://app.profcomff.com/favicon.png" class="logo" /></a>
-		in association with
-		<a href="https://dyakov.space"><img src="https://dyakov.space/files/Icon.svg" class="logo" /></a>
-	</footer>
+	<v-app class="container">
+		<main class="main">
+			<Suspense>
+				<RouterView />
+			</Suspense>
+		</main>
+		<v-snackbar-queue v-model="toastStore.queue"></v-snackbar-queue>
+	</v-app>
 </template>
 
 <style scoped>
 .container {
 	width: 100%;
 	height: 100%;
-}
-
-footer {
-	position: sticky;
-	bottom: 0;
-	width: 100%;
-	color: gray;
-	text-align: center;
-
-	& .logo {
-		height: 30px;
-		vertical-align: middle;
-	}
 }
 </style>
