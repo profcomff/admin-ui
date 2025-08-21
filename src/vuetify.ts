@@ -1,4 +1,5 @@
 import '@mdi/font/css/materialdesignicons.css';
+import 'vuetify/styles';
 import { createVuetify } from 'vuetify';
 import { aliases, mdi } from 'vuetify/iconsets/mdi';
 
@@ -31,6 +32,10 @@ export const vuetify = createVuetify({
 		},
 	},
 	defaults: {
+		VBtn: {
+			variant: 'flat',
+			color: 'primary',
+		},
 		VBtnToggle: {
 			color: 'rgb(0, 1, 76)',
 			elevation: 1,

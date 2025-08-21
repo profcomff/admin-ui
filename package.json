@@ -39,6 +39,7 @@
 		"eslint-plugin-vue": "^9.32.0",
 		"knip": "^5.45.0",
 		"openapi-typescript": "^7.6.1",
+		"postcss-html": "^1.8.0",
 		"postcss-preset-env": "^10.1.5",
 		"prettier": "^3.5.2",
 		"stylelint": "^16.15.0",
@@ -53,6 +54,6 @@
 		"vite-plugin-vuetify": "^2.1.0",
 		"vite-svg-loader": "^5.1.0",
 		"vue-tsc": "^2.2.6",
-		"vuetify": "^3.7.14"
+		"vuetify": "^3.9.5"
 	}
 }
